@@ -7,8 +7,9 @@ const path = require('path')
 const sqlite = require('sqlite')
 const dbConnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Promise })
 
-const port = proccess.env.PORT || 3000
+const port = process.env.PORT || 3000
 
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
